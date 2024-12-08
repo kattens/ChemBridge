@@ -15,3 +15,11 @@ This project aims to identify the targets of small drug molecules using a list o
 3. **Extract Target Information:**
    - Parse the downloaded files to create a new dictionary.
    - In this dictionary, each key is the PubChem ID (from the file name), and the value is a list of target names extracted from the "target names" column in the CSV file.
+
+### Next Phase
+
+Once we have identified the targets (proteins that interact with the molecules corresponding to the PubChem IDs), the next step is to retrieve their amino acid sequences from UniProt (preferred) or RCSB as PDB files (though this approach may be more challenging).
+
+### Follow-Up Step
+
+Using these sequences, perform a BLAST search against malaria orthologs to identify potential matches. (Additional details on the BLAST parameters and process can be added here.)
