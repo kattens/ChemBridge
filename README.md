@@ -1,4 +1,4 @@
-#ChemBridge: 
+# ChemBridge: 
 
 "Chem" → Chemistry, Compounds, Molecules
 "Bridge" → Connecting and integrating information
