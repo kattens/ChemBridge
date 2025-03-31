@@ -1,3 +1,17 @@
+#ChemBridge: 
+
+"Chem" → Chemistry, Compounds, Molecules
+"Bridge" → Connecting and integrating information
+
+This project acts like a bridge between:
+
+    PubChem’s raw data
+
+    and the user’s need for structured, clean, usable information
+
+We’re bridging the gap between messy, scattered chemical data and a usable, automated pipeline.
+
+
 # 🔬 Drug Target Identification
 
 ## 🎯 Project Goal
