@@ -1,42 +1,90 @@
-# ChemBridge: 
+### **Project Title: ChemBridge - A Drug Repurposing Pipeline for Malaria**
 
-"Chem" → Chemistry, Compounds, Molecules
+**Why "ChemBridge"?**  
+The name reflects the purpose of the project:
+- **"Chem"** → Chemistry, Compounds, Molecules
+- **"Bridge"** → Connecting and integrating scattered chemical information
 
-"Bridge" → Connecting and integrating information
+This project acts as a bridge between:
+- **Raw, unstructured data from PubChem**
+- And the user's need for **clean, structured, actionable information**
 
-This project acts like a bridge between:
+We aim to bridge the gap between messy chemical databases and a streamlined, automated pipeline to repurpose drugs against **malaria (taxonomy ID: 5833)**.
 
-    PubChem’s raw data
+---
 
-    and the user’s need for structured, clean, usable information
+### 🎯 **Project Goal**
 
-We’re bridging the gap between messy, scattered chemical data and a usable, automated pipeline.
+The main objective is to identify potential drug candidates for malaria by:
+- Analyzing known drug-target interactions
+- Finding structural homologs of these targets in malaria organisms
+- Predicting possible binding sites based on these similarities
+- Ultimately, reducing the search space for experimental validation
 
+---
 
-# 🔬 Drug Target Identification
+### 🚀 **Overall Workflow**
 
-## 🎯 Project Goal
+#### **1. Drug Dataset & Target Information Extraction**
+We start with a dataset of **PubChem IDs** and associated metadata.
+- We will use **PubChemPy** to retrieve:
+  - Biological test results
+  - Pathways and interaction data
+- Specifically, we will parse **target names** from the **biological test CSV files**.
+- A structured **dictionary** will be created, mapping each **PubChem ID** to its list of known targets.
 
-This project aims to identify the **targets** of small drug molecules using a list of **PubChem IDs**. To achieve this, we extract relevant biological test data from PubChem CSV files, specifically focusing on the **"target names"** column.
+This step converts scattered PubChem data into a structured and queryable format — the "bridge" of ChemBridge.
 
-## 🛠️ Overall Pipeline
+---
 
-1. **📌 Generate Initial Data**
-   - Create a list of **PubChem IDs** and their corresponding **targets** from the initial dataset.
-   - Construct a dictionary mapping each **PubChem ID** to its associated targets.
+#### **2. Structural Data Retrieval**
+For every identified target:
+- Search **RCSB PDB** for available **experimental PDB structures**.
+- Prioritize targets with high-quality structural data.
+- Prepare a clean dataset of drug-target pairs with known 3D structures.
 
-2. **📥 Download Biological Test Results**
-   - Use the **`pubchempy`** library to fetch biological test results as **CSV files**.
-   - Rename each file to match its corresponding **PubChem ID**.
+---
 
-3. **🔍 Extract Target Information**
-   - Parse the downloaded files to generate a structured dictionary.
-   - Each **PubChem ID** (file name) maps to a list of extracted **target names** from the **"target names"** column.
+#### **3. Homology Search Against Malaria Proteins**
+For each target PDB structure:
+- Perform a **BLASTp search** against proteins from **Plasmodium species (taxonomy 5833)**.
+- Focus first on matches with **experimental PDB structures**.
+- Identify malaria proteins with significant sequence/structural similarity to known drug targets.
 
-## 🚀 Next Phase
+---
 
-Once the targets (proteins interacting with the molecules) are identified, the next step is retrieving their **amino acid sequences** from **UniProt** (preferred) or **RCSB PDB** (alternative, though more complex).
+#### **4. Mapping & Binding Site Prediction**
+For each valid match:
+- Establish a triplet mapping:
+  - **Drug name**
+  - **Known target protein (with interaction site information)**
+  - **Similar malaria protein (with structural data)**
 
-## 🔬 Follow-Up Step
+This allows us to hypothesize that the drug may bind to the malaria protein at a similar site.
 
-Using these sequences, we will perform a **BLAST search** 🔎 against **malaria orthologs** to identify potential matches.
+---
+
+#### **5. Binding Modeling & Advanced Analysis**
+With this mapping:
+- Perform **docking simulations** and **binding affinity predictions**.
+- Leverage known interaction sites to constrain the search space.
+- Further analyze physicochemical and biological properties to evaluate efficacy.
+
+---
+
+### 🔄 **Future & Optional Steps**
+- **Filling Structural Gaps:**  
+  For proteins without experimental PDB data, we will use **AlphaFold models** to continue the analysis.
+  
+- **Advanced Binding Analysis:**  
+  Incorporate more advanced binding site prediction techniques once preliminary results are established.
+
+---
+
+### ✅ **Summary**
+The ChemBridge pipeline is an iterative, modular approach to drug repurposing:
+1. **Data Collection & Cleaning** (PubChem, bioactivity parsing)
+2. **Structural Mapping** (RCSB PDB)
+3. **Homology Search** (BLAST against malaria proteins)
+4. **Drug-Target-Pathogen Mapping**
+5. **Binding Prediction & Further Analysis**
