@@ -1,4 +1,4 @@
-### **Project Title: ChemBridge - A Drug Repurposing Pipeline for Malaria**
+### **ChemBridge - A Drug Repurposing Pipeline for Malaria**
 
 **Why "ChemBridge"?**  
 The name reflects the purpose of the project:
