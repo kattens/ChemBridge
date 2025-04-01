@@ -82,37 +82,38 @@ In summary, this project complements and extends prior deep learning-based molec
 
 # Project Structure: 
 ### 🌐 Malaria-Drug-Repurposing Project Structure
+
 Malaria-Drug-Repurposing/
-├── data/                         # All datasets & downloaded files
-│   ├── drugs.csv                 # Your input drug dataset
-│   ├── bioassay/                 # Bioassay download results (optional)
-│   ├── pathways/                 # Interaction & pathways download results
-│   ├── pdb_targets/              # Downloaded PDBs of known targets
-│   ├── pdb_malaria/              # Malaria proteins found via BLAST
+├── data/                         # Raw data & downloaded files
+│   ├── drugs.csv                 # Input dataset of drugs & related info
+│   ├── bioassay/                 # Bioassay data from PubChem (optional)
+│   ├── pathways/                 # Interaction & pathways data from PubChem
+│   ├── pdb_targets/              # PDB structures of known drug targets
+│   ├── pdb_malaria/              # Malaria protein PDBs (BLAST hits)
 │   └── blast_results/            # BLAST output files
 ├── docs/                         # Project documentation
 │   └── project_overview.md
-├── notebooks/                    # Optional: Exploratory notebooks
+├── notebooks/                    # Exploratory notebooks (optional)
 │   └── analysis.ipynb
-├── malaria_pipeline/             # Python package
+├── malaria_pipeline/             # Main Python package
 │   ├── __init__.py
-│   ├── downloader/
+│   ├── downloader/               # PubChem & RCSB downloaders
 │   │   ├── __init__.py
-│   │   └── downloader.py         # Downloaders for PubChem & RCSB
-│   ├── processor/
+│   │   └── downloader.py
+│   ├── processor/                # Data processing & cleaning logic
 │   │   ├── __init__.py
-│   │   └── processor.py          # Cleaning, filtering target data
-│   ├── blast/
+│   │   └── processor.py
+│   ├── blast/                    # BLAST search automation
 │   │   ├── __init__.py
-│   │   └── blast_handler.py      # BLAST automation
-│   ├── analysis/
+│   │   └── blast_handler.py
+│   ├── analysis/                 # Binding site prediction (future)
 │   │   ├── __init__.py
-│   │   └── binding_predictor.py  # Future: Binding prediction code
-│   ├── utils/
+│   │   └── binding_predictor.py
+│   ├── utils/                    # Helper functions
 │   │   ├── __init__.py
-│   │   └── file_utils.py         # Helper functions (file I/O, path handling)
-│   ├── config.py                 # All config paths, constants
-│   └── run_pipeline.py           # Main controller file
+│   │   └── file_utils.py
+│   ├── config.py                 # Configuration settings & file paths
+│   └── run_pipeline.py           # Main pipeline controller
 ├── tests/                        # Unit tests
 │   ├── __init__.py
 │   ├── test_downloader.py
@@ -120,4 +121,5 @@ Malaria-Drug-Repurposing/
 │   └── test_blast_handler.py
 ├── README.md                     # Project overview & instructions
 ├── requirements.txt              # Python dependencies
-└── setup.py                      # Optional: For pip installable package
+└── setup.py                      # Optional: Install package locally
+                  # Optional: For pip installable package
