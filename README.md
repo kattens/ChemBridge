@@ -78,3 +78,46 @@ There are additional steps and challenges we plan to address:
 
 ### 📌 **Summary & Significance**
 In summary, this project complements and extends prior deep learning-based molecule screening efforts by focusing on the **mechanistic, structure-guided discovery process**. Instead of only predicting compound activity, we aim to understand and validate the **binding mechanism** of known drugs against potential malaria targets. This will ultimately help reduce the search space for experimental studies and accelerate the identification of viable drug candidates against malaria.
+
+
+# Project Structure: 
+### 🌐 Malaria-Drug-Repurposing Project Structure
+Malaria-Drug-Repurposing/
+├── data/                         # All datasets & downloaded files
+│   ├── drugs.csv                 # Your input drug dataset
+│   ├── bioassay/                 # Bioassay download results (optional)
+│   ├── pathways/                 # Interaction & pathways download results
+│   ├── pdb_targets/              # Downloaded PDBs of known targets
+│   ├── pdb_malaria/              # Malaria proteins found via BLAST
+│   └── blast_results/            # BLAST output files
+├── docs/                         # Project documentation
+│   └── project_overview.md
+├── notebooks/                    # Optional: Exploratory notebooks
+│   └── analysis.ipynb
+├── malaria_pipeline/             # Python package
+│   ├── __init__.py
+│   ├── downloader/
+│   │   ├── __init__.py
+│   │   └── downloader.py         # Downloaders for PubChem & RCSB
+│   ├── processor/
+│   │   ├── __init__.py
+│   │   └── processor.py          # Cleaning, filtering target data
+│   ├── blast/
+│   │   ├── __init__.py
+│   │   └── blast_handler.py      # BLAST automation
+│   ├── analysis/
+│   │   ├── __init__.py
+│   │   └── binding_predictor.py  # Future: Binding prediction code
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   └── file_utils.py         # Helper functions (file I/O, path handling)
+│   ├── config.py                 # All config paths, constants
+│   └── run_pipeline.py           # Main controller file
+├── tests/                        # Unit tests
+│   ├── __init__.py
+│   ├── test_downloader.py
+│   ├── test_processor.py
+│   └── test_blast_handler.py
+├── README.md                     # Project overview & instructions
+├── requirements.txt              # Python dependencies
+└── setup.py                      # Optional: For pip installable package
