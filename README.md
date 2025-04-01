@@ -79,29 +79,3 @@ There are additional steps and challenges we plan to address:
 ### 📌 **Summary & Significance**
 In summary, this project complements and extends prior deep learning-based molecule screening efforts by focusing on the **mechanistic, structure-guided discovery process**. Instead of only predicting compound activity, we aim to understand and validate the **binding mechanism** of known drugs against potential malaria targets. This will ultimately help reduce the search space for experimental studies and accelerate the identification of viable drug candidates against malaria.
 
-
-# Project Structure: 
-### 🌐 Malaria-Drug-Repurposing Project Structure
-
-Malaria-Drug-Repurposing/
-├── data/                         # Raw data and downloaded files
-│   ├── drugs.csv                 # Input drug dataset
-│   ├── bioassay/                 # Bioassay data from PubChem
-│   ├── pathways/                 # Interaction & pathways data
-│   ├── pdb_targets/              # PDBs of known drug targets
-│   ├── pdb_malaria/              # Malaria protein PDBs (BLAST hits)
-│   └── blast_results/            # BLAST output files
-├── docs/                         # Project documentation
-├── notebooks/                    # Optional exploratory notebooks
-├── malaria_pipeline/             # Core Python package
-│   ├── downloader/               # PubChem & RCSB downloaders
-│   ├── processor/                # Data processing & filtering
-│   ├── blast/                    # BLAST automation
-│   ├── analysis/                 # Binding prediction (future)
-│   ├── utils/                    # Helper functions
-│   ├── config.py                 # Config settings & paths
-│   └── run_pipeline.py           # Pipeline entry point
-├── tests/                        # Unit tests
-├── README.md                     # Project overview & instructions
-├── requirements.txt              # Python dependencies
-└── setup.py                      # Optional: Installable package
