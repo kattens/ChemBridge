@@ -84,42 +84,24 @@ In summary, this project complements and extends prior deep learning-based molec
 ### 🌐 Malaria-Drug-Repurposing Project Structure
 
 Malaria-Drug-Repurposing/
-├── data/                         # Raw data & downloaded files
-│   ├── drugs.csv                 # Input dataset of drugs & related info
-│   ├── bioassay/                 # Bioassay data from PubChem (optional)
-│   ├── pathways/                 # Interaction & pathways data from PubChem
-│   ├── pdb_targets/              # PDB structures of known drug targets
+├── data/                         # Raw data and downloaded files
+│   ├── drugs.csv                 # Input drug dataset
+│   ├── bioassay/                 # Bioassay data from PubChem
+│   ├── pathways/                 # Interaction & pathways data
+│   ├── pdb_targets/              # PDBs of known drug targets
 │   ├── pdb_malaria/              # Malaria protein PDBs (BLAST hits)
 │   └── blast_results/            # BLAST output files
 ├── docs/                         # Project documentation
-│   └── project_overview.md
-├── notebooks/                    # Exploratory notebooks (optional)
-│   └── analysis.ipynb
-├── malaria_pipeline/             # Main Python package
-│   ├── __init__.py
+├── notebooks/                    # Optional exploratory notebooks
+├── malaria_pipeline/             # Core Python package
 │   ├── downloader/               # PubChem & RCSB downloaders
-│   │   ├── __init__.py
-│   │   └── downloader.py
-│   ├── processor/                # Data processing & cleaning logic
-│   │   ├── __init__.py
-│   │   └── processor.py
-│   ├── blast/                    # BLAST search automation
-│   │   ├── __init__.py
-│   │   └── blast_handler.py
-│   ├── analysis/                 # Binding site prediction (future)
-│   │   ├── __init__.py
-│   │   └── binding_predictor.py
+│   ├── processor/                # Data processing & filtering
+│   ├── blast/                    # BLAST automation
+│   ├── analysis/                 # Binding prediction (future)
 │   ├── utils/                    # Helper functions
-│   │   ├── __init__.py
-│   │   └── file_utils.py
-│   ├── config.py                 # Configuration settings & file paths
-│   └── run_pipeline.py           # Main pipeline controller
+│   ├── config.py                 # Config settings & paths
+│   └── run_pipeline.py           # Pipeline entry point
 ├── tests/                        # Unit tests
-│   ├── __init__.py
-│   ├── test_downloader.py
-│   ├── test_processor.py
-│   └── test_blast_handler.py
 ├── README.md                     # Project overview & instructions
 ├── requirements.txt              # Python dependencies
-└── setup.py                      # Optional: Install package locally
-                  # Optional: For pip installable package
+└── setup.py                      # Optional: Installable package
